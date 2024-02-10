@@ -27,3 +27,21 @@ export const AcademicFacultiesOptions = [
     label: 'Department of AI',
   },
 ];
+export const AcademicDepartmentOptions = [
+  {
+    value: 'Department of L1',
+    label: 'Department of L1',
+  },
+  {
+    value: 'Department of L2',
+    label: 'Department of L2',
+  },
+  {
+    value: 'Department Networking',
+    label: 'Department Networking',
+  },
+  {
+    value: 'Department AI',
+    label: 'Department AI',
+  },
+];

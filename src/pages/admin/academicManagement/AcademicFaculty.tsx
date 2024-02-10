@@ -17,7 +17,7 @@ const AcademicFaculty = () => {
 
   const { data: acdSemesterData, isFetching } =
     useGetAllAcademicFacultyQuery(undefined);
-  const academicFacultyData = acdSemesterData?.data?.map(({ _id, name }) => ({
+  const semesterData = acdSemesterData?.data?.map(({ _id, name }) => ({
     _id,
     name,
   }));
@@ -27,7 +27,7 @@ const AcademicFaculty = () => {
       loading={isFetching}
       rowKey="_id"
       columns={columns}
-      dataSource={academicFacultyData}
+      dataSource={semesterData}
     />
   );
 };

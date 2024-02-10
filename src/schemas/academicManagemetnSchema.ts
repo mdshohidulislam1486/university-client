@@ -11,3 +11,7 @@ export const academicSemesterSchema = z.object({
 export const academicFacultySchema = z.object({
   name: z.string({ required_error: 'Name filed is Required' }),
 });
+export const academicDepartmentSchema = z.object({
+  name: z.string({ required_error: 'Name filed is Required' }),
+  academicFaculty: z.string({ required_error: 'Name filed is Required' }),
+});

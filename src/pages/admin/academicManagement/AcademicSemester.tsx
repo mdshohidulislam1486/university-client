@@ -30,7 +30,6 @@ const AcademicSemester = () => {
       ],
       // specify the condition of filtering result
       // here is that finding the name started with `value`
-      onFilter: (value: string, record) => record.name.indexOf(value) === 0,
       sorter: (a, b) => a.name.length - b.name.length,
       sortDirections: ['descend'],
     },

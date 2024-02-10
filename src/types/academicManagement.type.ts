@@ -14,3 +14,8 @@ export type TAcademiFaculty = {
   name: string;
   _id: string;
 };
+export type TAcademiDepartment = {
+  name: string;
+  _id: string;
+  academicFaculty: { name: string };
+};
