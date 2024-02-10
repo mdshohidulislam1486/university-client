@@ -1,4 +1,4 @@
-import { Input } from 'antd';
+import { Form, Input } from 'antd';
 import { Controller } from 'react-hook-form';
 
 type TinputProps = {
@@ -9,10 +9,14 @@ type TinputProps = {
 const PHInput = ({ name, type, label }: TinputProps) => {
   return (
     <div style={{ marginBottom: '15px' }}>
-      {label ? label : null}
       <Controller
         name={name}
-        render={({ field }) => <Input {...field} type={type} id={name} />}
+        render={({ field, fieldState: { error } }) => (
+          <Form.Item label={label}>
+            <Input {...field} type={type} id={name} size="large" />
+            {error && <small style={{ color: 'red' }}>{error.message}</small>}
+          </Form.Item>
+        )}
       />
     </div>
   );
