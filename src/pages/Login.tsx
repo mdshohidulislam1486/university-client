@@ -7,7 +7,7 @@ import { TUser, setUser } from '../redux/features/auth/authSlice';
 import { verifyToken } from '../utils/verifyToken';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
-import PHFrom from '../components/form/PHFrom';
+import PHFrom from '../components/form/PHForm';
 import PHInput from '../components/form/PHInput';
 
 const Login = () => {

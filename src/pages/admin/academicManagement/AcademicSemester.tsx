@@ -1,4 +1,4 @@
-import { Spin, Table } from 'antd';
+import { Table } from 'antd';
 import type { TableColumnsType, TableProps } from 'antd';
 import { useGetAllSemesterQuery } from '../../../redux/features/admin/AcademicManagement.api';
 import { TAcademicSemester } from '../../../types/academicManagement.type';

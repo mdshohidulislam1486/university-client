@@ -3,15 +3,15 @@ import { FieldValues, SubmitHandler } from 'react-hook-form';
 import { Button, Col, Flex } from 'antd';
 import PHSelect from '../../../components/form/PHSelect';
 
-import { zodResolver } from '@hookform/resolvers/zod';
-
 import { toast } from 'sonner';
 import { useAddAcademicSemesterMutation } from '../../../redux/features/admin/AcademicManagement.api';
 import { nameOptions } from '../../../components/constants/semester';
 import { academicSemesterSchema } from '../../../schemas/academicManagemetnSchema';
-import PHFrom from '../../../components/form/PHFrom';
 import { monthOptions } from '../../../components/constants/global';
 import { TResponse } from '../../../types/global';
+import PHForm from '../../../components/form/PHForm';
+import { zodResolver } from '@hookform/resolvers/zod/src/zod.js';
+import { TAcademiFaculty } from '../../../types/academicManagement.type';
 
 const currentYear = new Date().getFullYear();
 const yearOptions = [0, 1, 2, 3, 4].map((number) => ({
@@ -37,7 +37,9 @@ const CreateAcademicSemester = () => {
     console.log({ semesterData });
 
     try {
-      const res = (await addAcademicSemester(semesterData)) as TResponse;
+      const res = (await addAcademicSemester(
+        semesterData
+      )) as TResponse<TAcademiFaculty>;
       console.log(res);
       if (res.error) {
         toast.error(res.error.data.message, { id: toastId });
@@ -52,9 +54,9 @@ const CreateAcademicSemester = () => {
   return (
     <Flex justify="center" align="center">
       <Col span={6}>
-        <PHFrom
+        <PHForm
           onSubmit={onSubmit}
-          // resolver={zodResolver(academicSemesterSchema)}
+          resolver={zodResolver(academicSemesterSchema)}
         >
           <PHSelect label="Name" name="name" options={nameOptions} />
           <PHSelect label="Year" name="year" options={yearOptions} />
@@ -66,7 +68,7 @@ const CreateAcademicSemester = () => {
           <PHSelect label="End Month" name="endMonth" options={monthOptions} />
 
           <Button htmlType="submit">Submit</Button>
-        </PHFrom>
+        </PHForm>
       </Col>
     </Flex>
   );

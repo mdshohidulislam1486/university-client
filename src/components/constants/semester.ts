@@ -12,3 +12,18 @@ export const nameOptions = [
     label: 'Fall',
   },
 ];
+
+export const AcademicFacultiesOptions = [
+  {
+    value: 'Department of Programming',
+    label: 'Department of Programming',
+  },
+  {
+    value: 'Department of Webdevelopment',
+    label: 'Department of Webdevelopment',
+  },
+  {
+    value: 'Department of AI',
+    label: 'Department of AI',
+  },
+];
